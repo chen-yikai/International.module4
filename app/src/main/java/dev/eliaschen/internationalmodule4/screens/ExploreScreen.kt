@@ -83,7 +83,10 @@ fun ExploreScreen() {
                     )
                 }
             }
-            Card(colors = CardDefaults.cardColors(containerColor = cardBg), elevation = CardDefaults.elevatedCardElevation(10.dp)) {
+            Card(
+                colors = CardDefaults.cardColors(containerColor = cardBg),
+                elevation = CardDefaults.elevatedCardElevation(10.dp)
+            ) {
                 Image(
                     painter = painterResource(R.drawable.renaissance),
                     contentDescription = null,
@@ -120,7 +123,9 @@ fun ExploreScreen() {
                                 Image(
                                     painter = painterResource(R.drawable.arrow_right_alt),
                                     contentDescription = null,
-                                    modifier = Modifier.size(30.dp, 10.dp).scale(0.7f),
+                                    modifier = Modifier
+                                        .size(30.dp, 10.dp)
+                                        .scale(0.7f),
                                     contentScale = ContentScale.None
                                 )
                                 Text("6:00 PM")
@@ -147,7 +152,7 @@ fun ExploreScreen() {
                         },
                     contentAlignment = Alignment.Center
                 ) {
-                    Text("Visit Gallery", fontFamily = playFair, color = cardBg)
+                    Text("Visit Gallery", fontFamily = playFair, color = cardBg, fontSize = 20.sp)
                 }
             }
         }

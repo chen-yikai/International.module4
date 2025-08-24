@@ -216,7 +216,7 @@ fun HomeScreen() {
                 ) {
                     Text(
                         "Explore Now",
-                        color = PrimaryBlack,
+                        color = PrimaryDark,
                         modifier = Modifier.padding(horizontal = 30.dp, vertical = 10.dp),
                         fontSize = 20.sp, fontFamily = playFair
                     )

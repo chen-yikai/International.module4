@@ -6,13 +6,13 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 
 class NavController : ViewModel() {
-    private val initNav = Screen.Artists
+    private val initNav = Screen.Home
     var currentNav by mutableStateOf(initNav)
     val navStack = mutableListOf(initNav)
 
     fun navTo(screen: Screen) {
-        navStack.add(currentNav)
         currentNav = screen
+        navStack.add(currentNav)
     }
 
     fun pop() {
