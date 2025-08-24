@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace = "dev.eliaschen.internationalmodule4"
-    compileSdk = 36
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "dev.eliaschen.internationalmodule4"
-        minSdk = 36
+        minSdk = 35
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -51,7 +51,7 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
+//    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))

@@ -2,14 +2,24 @@ package dev.eliaschen.internationalmodule4.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import dev.eliaschen.internationalmodule4.R
+
+val playFair = FontFamily(
+    Font(R.font.playfair_display_regular,FontWeight.Normal)
+)
+
+val optima = FontFamily(
+    Font(R.font.optima_display,FontWeight.Normal)
+)
 
 // Set of Material typography styles to start with
 val Typography = Typography(
     bodyLarge = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily = playFair,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         lineHeight = 24.sp,

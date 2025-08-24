@@ -4,14 +4,24 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.ViewModelProvider
+import dev.eliaschen.internationalmodule4.models.NavController
+import dev.eliaschen.internationalmodule4.models.Screen
+import dev.eliaschen.internationalmodule4.screens.HomeScreen
 import dev.eliaschen.internationalmodule4.ui.theme.Internationalmodule4Theme
+
+val LocalNavController = compositionLocalOf<NavController> { error("") }
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,29 +29,19 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Internationalmodule4Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                val nav = ViewModelProvider(this)[NavController::class.java]
+
+                CompositionLocalProvider(LocalNavController provides nav) {
+                    when(nav.currentNav){
+                        Screen.Home -> HomeScreen()
+                        else -> {
+                            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+                                Text("Screen not found")
+                            }
+                        }
+                    }
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Internationalmodule4Theme {
-        Greeting("Android")
     }
 }
