@@ -57,13 +57,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
+import dev.eliaschen.internationalmodule4.LocalNavController
 import dev.eliaschen.internationalmodule4.R
+import dev.eliaschen.internationalmodule4.models.Screen
 import dev.eliaschen.internationalmodule4.ui.theme.PrimaryBeige
 import dev.eliaschen.internationalmodule4.ui.theme.PrimaryBlack
 import dev.eliaschen.internationalmodule4.ui.theme.PrimaryDark
 import dev.eliaschen.internationalmodule4.ui.theme.PrimaryGray
 import dev.eliaschen.internationalmodule4.ui.theme.PrimaryYellow
 import dev.eliaschen.internationalmodule4.ui.theme.optima
+import dev.eliaschen.internationalmodule4.ui.theme.playFair
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlin.math.roundToInt
@@ -71,6 +74,7 @@ import kotlin.math.roundToInt
 @Composable
 fun HomeScreen() {
     val device = LocalConfiguration.current
+    val nav = LocalNavController.current
 
     val title = "Experience Art"
     val content =
@@ -177,7 +181,7 @@ fun HomeScreen() {
                     title.slice(0..titleTyping),
                     fontSize = 30.sp,
                     color = PrimaryBeige,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center, fontFamily = playFair
                 )
                 Spacer(Modifier.height(10.dp))
                 Text(
@@ -185,7 +189,6 @@ fun HomeScreen() {
                     textAlign = TextAlign.Center,
                     color = PrimaryGray,
                     fontSize = 15.sp,
-                    fontFamily = optima
                 )
             }
             AnimatedVisibility(
@@ -209,13 +212,13 @@ fun HomeScreen() {
                     colors = CardDefaults.cardColors(containerColor = PrimaryYellow),
                     modifier = Modifier.navigationBarsPadding(),
                     shape = CircleShape,
-                    onClick = {}
+                    onClick = { nav.navTo(Screen.Explore) }
                 ) {
                     Text(
                         "Explore Now",
                         color = PrimaryBlack,
                         modifier = Modifier.padding(horizontal = 30.dp, vertical = 10.dp),
-                        fontSize = 20.sp
+                        fontSize = 20.sp, fontFamily = playFair
                     )
                 }
             }

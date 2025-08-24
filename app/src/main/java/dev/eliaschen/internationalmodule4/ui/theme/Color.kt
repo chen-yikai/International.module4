@@ -12,6 +12,8 @@ val Pink40 = Color(0xFF7D5260)
 
 val PrimaryDark = Color(0xff1C1C1C)
 val PrimaryYellow = Color(0xffD29F1A)
+
 val PrimaryBeige = Color(0xffF9DDB6)
 val PrimaryGray = Color(0xffCCCCCC)
 val PrimaryBlack = Color(0xff2A261C)
+val cardBg = Color(0xff333333)

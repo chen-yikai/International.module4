@@ -2,8 +2,10 @@ package dev.eliaschen.internationalmodule4
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -18,8 +20,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModelProvider
 import dev.eliaschen.internationalmodule4.models.NavController
 import dev.eliaschen.internationalmodule4.models.Screen
+import dev.eliaschen.internationalmodule4.screens.ExploreScreen
 import dev.eliaschen.internationalmodule4.screens.HomeScreen
 import dev.eliaschen.internationalmodule4.ui.theme.Internationalmodule4Theme
+import dev.eliaschen.internationalmodule4.ui.theme.PrimaryDark
 
 val LocalNavController = compositionLocalOf<NavController> { error("") }
 
@@ -32,10 +36,21 @@ class MainActivity : ComponentActivity() {
                 val nav = ViewModelProvider(this)[NavController::class.java]
 
                 CompositionLocalProvider(LocalNavController provides nav) {
-                    when(nav.currentNav){
+                    BackHandler {
+                        if (nav.navStack.size > 1) {
+                            nav.pop()
+                        } else {
+                            finish()
+                        }
+                    }
+                    when (nav.currentNav) {
                         Screen.Home -> HomeScreen()
+                        Screen.Explore -> ExploreScreen()
                         else -> {
-                            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+                            Box(
+                                modifier = Modifier.fillMaxSize().background(PrimaryDark),
+                                contentAlignment = Alignment.Center
+                            ) {
                                 Text("Screen not found")
                             }
                         }
