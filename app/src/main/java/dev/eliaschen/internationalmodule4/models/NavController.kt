@@ -6,17 +6,17 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 
 class NavController : ViewModel() {
-    private val initNav = Screen.Explore
+    private val initNav = Screen.Artists
     var currentNav by mutableStateOf(initNav)
     val navStack = mutableListOf(initNav)
 
-    fun navTo(screen: Screen){
+    fun navTo(screen: Screen) {
         navStack.add(currentNav)
         currentNav = screen
     }
 
-    fun pop(){
-        if(navStack.size > 1){
+    fun pop() {
+        if (navStack.size > 1) {
             navStack.removeLast()
             currentNav = navStack.last()
         }

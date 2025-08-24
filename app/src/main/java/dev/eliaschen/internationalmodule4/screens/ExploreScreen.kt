@@ -83,7 +83,7 @@ fun ExploreScreen() {
                     )
                 }
             }
-            Card(colors = CardDefaults.cardColors(containerColor = cardBg)) {
+            Card(colors = CardDefaults.cardColors(containerColor = cardBg), elevation = CardDefaults.elevatedCardElevation(10.dp)) {
                 Image(
                     painter = painterResource(R.drawable.renaissance),
                     contentDescription = null,

@@ -22,6 +22,7 @@ import dev.eliaschen.internationalmodule4.models.NavController
 import dev.eliaschen.internationalmodule4.models.Screen
 import dev.eliaschen.internationalmodule4.screens.ExploreScreen
 import dev.eliaschen.internationalmodule4.screens.HomeScreen
+import dev.eliaschen.internationalmodule4.screens.TicketingScreen
 import dev.eliaschen.internationalmodule4.ui.theme.Internationalmodule4Theme
 import dev.eliaschen.internationalmodule4.ui.theme.PrimaryDark
 
@@ -46,6 +47,7 @@ class MainActivity : ComponentActivity() {
                     when (nav.currentNav) {
                         Screen.Home -> HomeScreen()
                         Screen.Explore -> ExploreScreen()
+                        Screen.Ticketing -> TicketingScreen()
                         else -> {
                             Box(
                                 modifier = Modifier.fillMaxSize().background(PrimaryDark),
