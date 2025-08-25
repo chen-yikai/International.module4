@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 
 class NavController : ViewModel() {
-    private val initNav = Screen.Home
+    private val initNav = Screen.Exhibit
     var currentNav by mutableStateOf(initNav)
     val navStack = mutableListOf(initNav)
 

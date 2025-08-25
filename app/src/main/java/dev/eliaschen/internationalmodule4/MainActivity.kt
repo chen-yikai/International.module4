@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModelProvider
 import dev.eliaschen.internationalmodule4.models.NavController
 import dev.eliaschen.internationalmodule4.models.Screen
+import dev.eliaschen.internationalmodule4.screens.ExhibitScreen
 import dev.eliaschen.internationalmodule4.screens.ExploreScreen
 import dev.eliaschen.internationalmodule4.screens.HomeScreen
 import dev.eliaschen.internationalmodule4.screens.TicketingScreen
@@ -46,6 +47,7 @@ class MainActivity : ComponentActivity() {
                         Screen.Explore -> ExploreScreen()
                         Screen.Ticketing -> TicketingScreen()
                         Screen.Artists -> ArtistsScreen()
+                        Screen.Exhibit -> ExhibitScreen()
                         else -> {
                             Box(
                                 modifier = Modifier.fillMaxSize().background(PrimaryDark),
